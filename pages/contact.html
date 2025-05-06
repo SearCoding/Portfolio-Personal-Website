@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <audio controls autoplay loop hidden>
+        <source src="../asset/audio/healing-waves-of-love-532-hz-healing-uplifting-meditation-music-332727.mp3"
+            type="audio/mp3">
+    </audio>
+    <header class="header">
+        <a href="index.html" class="logo">Nasir <span>Deshields</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+
+        <form action="http://localhost:3000/send" method="POST">
+            <div class="input-box">
+                <input type="text" name="fullName" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-box">
+                <input type="number" name="phone" placeholder="Phone Number">
+                <input type="text" name="subject" placeholder="Subject" required>
+            </div>
+
+            <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+
+    </section>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/nasir-deshields-b51554296" target="_blank"><i
+                class='bx bxl-linkedin-square'></i></a>
+        <a href="https://www.instagram.com/christmasinmyheart.shi/" target="_blank"><i
+                class='bx bxl-instagram'></i></a>
+        <a href="https://www.GitHub.com/SearCoding" target="_blank"><i class='bx bxl-github'></i></a>
+        </div>
+
+        <ul class="list">
+            <li>
+                <a href="#">FAQ</a>
+            </li>
+
+            <li>
+                <a href="about.html">About Me</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+            <li>
+                <a href="#">Privacy Policy</a>
+            </li>
+        </ul>
+        <p class="copyright">
+            © 2025 Nasir Deshields | All Rights Reserved
+        </p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
