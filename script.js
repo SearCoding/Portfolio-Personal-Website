@@ -2,24 +2,23 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
+
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('public'));  // assumes your contact.html is in /public
 
 app.post('/send', async (req, res) => {
     const { fullName, email, phone, subject, message } = req.body;
 
-    // Check for missing fields
+    // Check if any field is missing
     if (!fullName || !email || !phone || !subject || !message) {
-        return res.send(`
-            <script>
-                alert('Please fill in all fields!');
-                window.history.back();
-            </script>
-        `);
+        // Redirect back to contact page with error status
+        return res.redirect('/contact.html?status=missing');
     }
 
     const transporter = nodemailer.createTransport({
@@ -43,20 +42,12 @@ Message: ${message}`
 
     try {
         await transporter.sendMail(mailOptions);
-        res.send(`
-            <script>
-                alert('Email sent successfully!');
-                window.location.href = '/'; // or redirect to another page
-            </script>
-        `);
+        // Redirect back to contact page with success status
+        res.redirect('/contact.html?status=success');
     } catch (error) {
         console.error(error);
-        res.send(`
-            <script>
-                alert('Failed to send email. Please try again later.');
-                window.history.back();
-            </script>
-        `);
+        // Redirect back to contact page with error status
+        res.redirect('/contact.html?status=error');
     }
 });
 
