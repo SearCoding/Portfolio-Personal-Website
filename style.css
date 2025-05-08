@@ -37,6 +37,8 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    position: relative;
+    overflow: visible;
 }
 
 .logo {
@@ -750,117 +752,147 @@ span {
     cursor: pointer;
 }
 
-/* Media Query for tablets (768px and below) */
-@media (max-width: 768px) {
+/* Large screens adjustment */
+@media (max-width: 1285px) {
     html {
         font-size: 55%;
     }
 
-    .header {
-        padding: 2rem 5%;
+    .qualification-section-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 
+    .portfolio-section {
+        padding: 6rem 5%;
+    }
+
+    .projects-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium screens adjustment */
+@media (max-width: 991px) {
+    header, .footer {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3% 2rem;
+    }
+
+    .portfolio-section {
+        padding: 4rem 3%;
+    }
+
+    .about {
+        flex-direction: column;
+        padding: 5rem 3%;
+        gap: 5rem;
+    }
+
+    .about-img img {
+        width: 45vw;
+    }
+
+    .home-content h1 {
+        font-size: 6rem;
+    }
+
+    .home-content h3 {
+        font-size: 3rem;
+    }
+
+    .timeline-section {
+        padding: 3rem 3%;
+    }
+}
+
+/* Tablet and mobile menu toggle */
+@media (max-width: 895px) {
     #menu-icon {
         display: block;
     }
 
     .navbar {
-        display: none;
-        flex-direction: column;
-        background: var(--second-bg-color);
         position: absolute;
         top: 100%;
-        left: 0;
-        width: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3%;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        display: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        flex-direction: column;
         text-align: center;
     }
 
     .navbar.active {
         display: flex;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: white;
+    }
+
+    .home,
+    .about {
+        flex-direction: column;
+        margin: 4rem 2rem;
     }
 
     .home-content h1 {
         font-size: 5rem;
+        margin-top: 3rem;
     }
 
     .home-content h3 {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
     }
 
-    .about {
-        flex-direction: column;
-        padding: 4rem 5%;
+    .home-content p {
+        max-width: 600px;
+        margin: 0 auto;
     }
 
+    .home-img img,
     .about-img img {
-        width: 50vw;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
-    .qualification-section-container {
-        grid-template-columns: 1fr;
+    .about-content {
+        margin-bottom: 4rem;
     }
 
-    .projects-box {
-        grid-template-columns: 1fr;
-    }
-
+    .qualification-section-container,
+    .projects-box,
     .skills-wrapper {
         grid-template-columns: 1fr;
+        margin: 0 3rem;
     }
 
-    .timeline-section {
-        padding: 3rem 1.5rem;
-    }
-
-    .portfolio-section {
-        padding: 4rem 5%;
+    .portfolio-container h2 {
+        margin-bottom: 3rem;
     }
 
     .contact form .input-box {
         flex-direction: column;
-    }
-}
-
-/* Media Query for small devices (480px and below) */
-@media (max-width: 480px) {
-    html {
-        font-size: 50%;
-    }
-
-    .home-content h1 {
-        font-size: 4rem;
-    }
-
-    .home-content h3 {
-        font-size: 2.2rem;
-    }
-
-    .home-img img {
-        width: 60vw;
-    }
-
-    .about-content h3 {
-        font-size: 2.2rem;
-    }
-
-    .about-content p {
-        font-size: 1.4rem;
-    }
-
-    .project-card img {
-        max-width: 100%;
-    }
-
-    .heading {
-        font-size: 5rem;
-    }
-
-    .portfolio-container h2 {
-        font-size: 3rem;
-    }
-
-    .footer ul li {
-        display: block;
-        margin: 1rem 0;
     }
 }
