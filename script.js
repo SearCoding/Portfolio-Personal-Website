@@ -36,10 +36,10 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 
         if (result.success) {
             alert(result.message);
-            window.location.href = '/contact.html'; // Redirect after success
+            window.location.href = '/contact.html';
         } else {
             alert(result.message);
-            // optionally stay on the page
+            window.location.href = '/contact.html';
         }
     } catch (error) {
         console.error('Error:', error);
