@@ -1,7 +1,3 @@
-//Contact Page Script
-// This script handles the form submission for the contact page and sends an email using Nodemailer.
-// It uses Express.js to create a server and Nodemailer to send emails through Gmail.
-
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
@@ -43,4 +39,9 @@ Message: ${message}`
         console.error(error);
         res.status(500).json({ success: false, message: 'Email sending failed. Please try again later.' });
     }
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server started on http://localhost:${PORT}`);
 });
